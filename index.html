@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script language="Javascript" src="js/layui.js"></script>
+	<script language="Javascript" src="js/nicePage.js"></script>
+	<script LANGUAGE="javascript">
+        var json = [{
+            "id": "广东省",
+            "name": "张X",
+            "age": "10"
+        }, {
+            "id": "山东省",
+            "name": "魏X",
+            "age": "6"
+        }, {
+            "id": "新疆维吾尔自治区",
+            "name": "刘X",
+            "age": "3"
+        }, {
+            "id": "山东省",
+            "name": "魏X",
+            "age": "16"
+        }, {
+            "id": "浙江省",
+            "name": "刘X",
+            "age": "37"
+        }, {
+            "id": "四川省",
+            "name": "刘X",
+            "age": "26"
+        }, {
+            "id": "辽宁省",
+            "name": "刘X",
+            "age": "13"
+        },
+        ];
+        //nameList与widthList的数组长度要一致
+        var nameList = ['省份', '业务经理', '租赁金额']//table的列名
+        var widthList = [100, 100, 100]//table每列的宽度
+
+        $(function () {
+            nicePage.setCfg({
+                table: 'table',
+                bar: 'pageBar',
+                limit: 3,
+                color: '#1E9FFF',
+                layout: ['count', 'skip', 'prev', 'next']
+            });
+        }); //初始化完成
+	</script>
+	<meta charset="utf-8">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/echarts.min.js"></script>
+	<script src="js/china.js"></script>
+	<script src="js/bootstrap-table.js"></script>
+</head>
+
+<body>
+<div id="data">
+	<div id="r1">
+		<div id="top-left">
+			<div id="t1">
+				<div id="table"></div>
+				<div id="pageBar"></div>
+			</div>
+			<div id="percent">
+				<div id="pp1">
+					<span id="p1">45%</span><br>
+					<span id="txt">东部大区</span>
+				</div>
+				<div id="pp2">
+					<span id="p2">20%</span><br>
+					<span id="txt">西部大区</span>
+				</div>
+				<div id="pp3">
+					<span id="p3">35%</span><br>
+					<span id="txt">南部大区</span>
+				</div>
+			</div>
+		</div>
+		<div id="mymap">
+			<span id="text3">租赁分布</span>
+			<div id="map">
+			</div>
+
+		</div>
+
+		<div id="top-right">
+			<div id="tt">
+				<span id="txt1">租赁金额</span>
+				<span id="txt2">2201万</span>
+				<span id="txt3">租赁数量</span>
+				<span id="txt4">897</span>
+			</div>
+			<div id="table-wrapper">
+				<div id="table-scroll" class="table-bordered">
+					<table>
+						<tbody>
+						<tr>
+							<td>区域</td>
+							<td>行业大类</td>
+							<td>起租金额</td>
+						</tr>
+						<tr>
+							<td>东北</td>
+							<td>物流运输</td>
+							<td class="grntxt">7,411,744</td>
+						</tr>
+						<tr>
+							<td>东北</td>
+							<td>物流运输</td>
+							<td class="grntxt">3,890,998</td>
+						</tr>
+						<tr>
+							<td>东北</td>
+							<td>物流运输</td>
+							<td class="grntxt">6,380,842</td>
+						</tr>
+						<tr>
+							<td>广东</td>
+							<td>港口物流</td>
+							<td class="grntxt">1,234,567</td>
+						</tr>
+						<tr>
+							<td>广东</td>
+							<td>港口物流</td>
+							<td class="grntxt">1,293,192</td>
+						</tr>
+						<tr>
+							<td>西安</td>
+							<td>港口物流</td>
+							<td class="grntxt">1,293,102</td>
+						</tr>
+						<tr>
+							<td>四川</td>
+							<td>物流运输</td>
+							<td class="grntxt">2,123,143</td>
+						</tr>
+						<tr>
+							<td>辽宁</td>
+							<td>港口物流</td>
+							<td class="grntxt">2,141,234</td>
+						</tr>
+						<tr>
+							<td>四川</td>
+							<td>物流运输</td>
+							<td class="grntxt">4,123,150</td>
+						</tr>
+						<tr>
+							<td>四川</td>
+							<td>危化品物流</td>
+							<td class="grntxt">2,123,150</td>
+						</tr>
+						<tr>
+							<td>陕西</td>
+							<td>物流运输</td>
+							<td class="grntxt">1,260,329</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div id="circle">
+				<div id="c1"></div>
+				<div id="c1_1"></div>
+				<div id="c1_2"></div>
+			</div>
+		</div>
+
+	</div>
+	<div id="r2">
+		<div id="com1">
+			<span id="text1">省份租赁TOP6</span>
+			<div id="c2"></div>
+			<span id="text2">业务经理TOP业绩TOP6</span>
+			<div id="c2_2"></div>
+		</div>
+		<div id="com2">
+
+			<div id="table2-wrapper">
+				<div id="table2-scroll" class="table-bordered">
+					<table>
+						<thead>
+						<tr>
+							<th>区域</th>
+							<th>省份</th>
+							<th>客户</th>
+							<th>租赁金额</th>
+							<th>租赁数量</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>南部大区</td>
+							<td>广东省</td>
+							<td>A1物流有限公司</td>
+							<td align="center">7🔽</td>
+							<td align="center">1🔴</td>
+						</tr>
+						<tr>
+							<td>东部大区</td>
+							<td>山东省</td>
+							<td>A2物流有限公司</td>
+							<td align="center">6🔽</td>
+							<td align="center">3🔴</td>
+						</tr>
+						<tr>
+							<td>中西部大区</td>
+							<td>山西省</td>
+							<td>A3物流有限公司</td>
+							<td align="center">2🔼</td>
+							<td align="center">4🔴</td>
+						</tr>
+						<tr>
+							<td>中西部大区</td>
+							<td>山西省</td>
+							<td>A3物流有限公司</td>
+							<td align="center">2🔼</td>
+							<td align="center">4🔴</td>
+						</tr>
+						<tr>
+							<td>中西部大区</td>
+							<td>山西省</td>
+							<td>A3物流有限公司</td>
+							<td align="center">2🔼</td>
+							<td align="center">4🔴</td>
+						</tr>
+						<tr>
+							<td>中西部大区</td>
+							<td>山西省</td>
+							<td>A3物流有限公司</td>
+							<td align="center">2🔼</td>
+							<td align="center">4🔴</td>
+						</tr>
+						<tr>
+							<td>中西部大区</td>
+							<td>山西省</td>
+							<td>A3物流有限公司</td>
+							<td align="center">2🔼</td>
+							<td align="center">4🔴</td>
+						</tr>
+						<tr>
+							<td>中西部大区</td>
+							<td>新疆维吾尔自治区</td>
+							<td>A4物流有限公司</td>
+							<td align="center">3🔽</td>
+							<td align="center">3🔴</td>
+						</tr>
+						<tr>
+							<td>南部大区</td>
+							<td>广东省</td>
+							<td>A3物流有限公司</td>
+							<td align="center">4🔽</td>
+							<td align="center">3🔴</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+			<div id="circle4">
+				<div id="c3"></div>
+				<div id="c3_1"></div>
+				<div id="c3_2"></div>
+				<div id="c3_3"></div>
+			</div>
+		</div>
+		<div id="com3">
+			<div id="c5"></div>
+			<div id="c5_2"></div>
+			<div id="c5_3"></div>
+		</div>
+	</div>
+	<div id="r3">
+		<div id="c4"></div>
+		<div id="c4_2"></div>
+	</div>
+</div>
+<script type="text/javascript">
+    var Chart1 = echarts.init(document.getElementById("c1"));
+    var Chart1_1 = echarts.init(document.getElementById("c1_1"));
+    var Chart1_2 = echarts.init(document.getElementById("c1_2"));
+    var Chart2 = echarts.init(document.getElementById("c2"));
+    var Chart2_2 = echarts.init(document.getElementById("c2_2"));
+    var Chart3 = echarts.init(document.getElementById("c3"));
+    var Chart3_1 = echarts.init(document.getElementById("c3_1"));
+    var Chart3_2 = echarts.init(document.getElementById("c3_2"));
+    var Chart3_3 = echarts.init(document.getElementById("c3_3"));
+    var Chart4 = echarts.init(document.getElementById("c4"));
+    var Chart4_2 = echarts.init(document.getElementById("c4_2"));
+    var Chart5 = echarts.init(document.getElementById("c5"));
+    var Chart5_2 = echarts.init(document.getElementById("c5_2"));
+    var Chart5_3 = echarts.init(document.getElementById("c5_3"));
+    var mmmm = echarts.init(document.getElementById("map"));
+
+    mapoption = {
+        series: [{
+            type: 'map',
+            nameMap: '中国',
+            selectedMode: 'single',
+            map: 'china',
+            label: {
+                show: false,
+
+                fontWeight: 'bolder'
+            },
+            itemStyle: {
+                areaColor: '#10c4b9',
+
+                borderColor: '#fff',
+                borderWidth: 2,
+                borderType: 'solid',
+                // shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 0,
+                shadowColor: '#fff'
+            },
+            emphasis: {
+                label: {
+                    color: 'yellow',
+                    position: 'inside',
+                    align: 'center',
+                    verticalAlign: 'middle',
+                },
+                itemStyle: {
+                    areaColor: '#074258',
+                }
+            },
+            data: [
+                {name: '北京', selected: false, value: 1},
+                {name: '天津', selected: false, value: 2},
+                {name: '上海', selected: false, value: 3},
+                {name: '重庆', selected: false, value: 4},
+                {name: '河北', selected: false, value: 5},
+                {name: '河南', selected: false, value: 6},
+                {name: '云南', selected: false, value: 7},
+                {name: '辽宁', selected: false, value: 8},
+                {name: '黑龙江', selected: false, value: 9},
+                {name: '湖南', selected: false, value: 10},
+                {name: '安徽', selected: false, value: 11},
+                {name: '山东', selected: false, value: 12},
+                {name: '新疆', selected: false, value: 13},
+                {name: '江苏', selected: false, value: 14},
+                {name: '浙江', selected: false, value: 15},
+                {name: '江西', selected: false, value: 16},
+                {name: '湖北', selected: false, value: 17},
+                {name: '广西', selected: false, value: 18},
+                {name: '甘肃', selected: false, value: 19},
+                {name: '山西', selected: false, value: 20},
+                {name: '内蒙古', selected: false, value: 21},
+                {name: '陕西', selected: false, value: 22},
+                {name: '吉林', selected: false, value: 23},
+                {name: '福建', selected: false, value: 24},
+                {name: '贵州', selected: false, value: 25},
+                {name: '广东', selected: false, value: 26},
+                {name: '青海', selected: false, value: 27},
+                {name: '西藏', selected: false, value: 28},
+                {name: '四川', selected: false, value: 29},
+                {name: '宁夏', selected: false, value: 30},
+                {name: '海南', selected: false, value: 31},
+                {name: '台湾', selected: false, value: 32},
+                {name: '香港', selected: false, value: 33},
+                {name: '澳门', selected: false, value: 34},
+                {name: '南海诸岛', selected: false, value: 35, "itemStyle": {"normal": {"opacity": 0}}},
+            ]//各省地图颜色数据依赖value
+
+        }],
+        dataRange: {
+            x: '-1000px',//图例横轴位置
+            y: '-1000px',//图例纵轴位置
+            splitList: [
+                {start: 1, end: 1, label: '北京', color: '#0dc8cf'},
+                {start: 2, end: 2, label: '天津', color: '#0fc3d2'},
+                {start: 3, end: 3, label: '上海', color: '#1dc1c2'},
+                {start: 4, end: 4, label: '重庆', color: '#024f69'},
+                {start: 5, end: 5, label: '河北', color: '#10c5c0'},
+                {start: 6, end: 6, label: '河南', color: '#006777'},
+                {start: 7, end: 7, label: '云南', color: '#026376'},
+                {start: 8, end: 8, label: '辽宁', color: '#078f9b'},
+                {start: 9, end: 9, label: '黑龙江', color: '#047b81'},
+                {start: 10, end: 10, label: '湖南', color: '#0091bb'},
+                {start: 11, end: 11, label: '安徽', color: '#005072'},
+                {start: 12, end: 12, label: '山东', color: '#0291b3'},
+                {start: 13, end: 13, label: '新疆', color: '#04516f'},
+                {start: 14, end: 14, label: '江苏', color: '#007d88'},
+                {start: 15, end: 15, label: '浙江', color: '#037a92'},
+                {start: 16, end: 16, label: '江西', color: '#00526a'},
+                {start: 17, end: 17, label: '湖北', color: '#047c8a'},
+                {start: 18, end: 18, label: '广西', color: '#034e75'},
+                {start: 19, end: 19, label: '甘肃', color: '#01536b'},
+                {start: 20, end: 20, label: '山西', color: '#0293c0'},
+                {start: 21, end: 21, label: '内蒙古', color: '#10c6c9'},
+                {start: 22, end: 22, label: '陕西', color: '#024f69'},
+                {start: 23, end: 23, label: '吉林', color: '#04909f'},
+                {start: 24, end: 24, label: '福建', color: '#017989'},
+                {start: 25, end: 25, label: '贵州', color: '#017b86'},
+                {start: 26, end: 26, label: '广东', color: '#074d6f'},
+                {start: 27, end: 27, label: '青海', color: '#11c4c9'},
+                {start: 28, end: 28, label: '西藏', color: '#017b88'},
+                {start: 29, end: 29, label: '四川', color: '#11c5ba'},
+                {start: 30, end: 30, label: '宁夏', color: '#7bd8e7'},
+                {start: 31, end: 31, label: '海南', color: '#10c2d0'},
+                {start: 32, end: 32, label: '台湾', color: '#e0e7f7'},
+                {start: 33, end: 33, label: '香港', color: '#dc9bbb'},
+                {start: 34, end: 34, label: '澳门', color: '#e0f7cc'},
+            ]
+        },
+    };
+
+    option1 = {
+
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                avoidLabelOverlap: false,
+                labelLine: {//设置延长线的长度
+                    normal: {
+                        color: '#fff',
+                        fontSize: 20,
+                        length: 10,//设置延长线的长度
+                        length2: 5,//设置第二段延长线的长度
+                    }
+                },
+                label: {
+                    normal: {
+                        color: '#fff',
+                        fontSize: 10,
+                        show: true,
+                        margin: 0
+                    }
+                },
+                data: [
+                    {
+                        value: 335, name: '35%', itemStyle: {
+                            color: '#FFDA61'
+                        }
+                    },
+                    {
+                        value: 310, name: '34%', itemStyle: {
+                            color: '#06D4E6'
+                        }
+                    },
+                    {
+                        value: 234, name: '28%', itemStyle: {
+                            color: '#F98083'
+                        }
+                    },
+                ],
+
+            }
+        ]
+    };
+    option1_1 = {
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: ['55%', '65%'],
+                avoidLabelOverlap: false,
+                labelLine: {//设置延长线的长度
+                    normal: {
+                        color: '#fff',
+                        length: 0,//设置延长线的长度
+                        length2: 5,//设置第二段延长线的长度
+                    }
+                },
+                label: {
+                    normal: {
+                        color: '#fff',
+                        fontSize: 10,
+                        show: true,
+                        margin: 0
+                    }
+                },
+                data: [
+                    {
+                        value: 335, name: '35%', itemStyle: {
+                            color: '#FFDA61'
+                        }
+                    },
+                    {
+                        value: 310, name: '34%', itemStyle: {
+                            color: '#06D4E6'
+                        }
+                    },
+                    {
+                        value: 234, name: '28%', itemStyle: {
+                            color: '#F98083'
+                        }
+                    },
+                ]
+            }
+        ]
+    };
+
+
+    option22 = {
+        grid: {
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom: '20',
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['常X', '董X', '李X', '苏X', '魏X', '颜X'],
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            }
+        ],
+        yAxis: [
+            {
+                "show": false,
+                type: 'value',
+                "axisLine": {
+                    // "show": false
+                },
+                "axisTick": {
+                    "show": false
+                },
+                "splitLine": {
+                    "show": false
+                }
+            }
+        ],
+        series: [
+            {
+                // barGap: 20,
+                // name:'联盟广告',
+                type: 'bar',
+                stack: '广告',
+                data: [30, 32, 50, 40, 46, 45],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            // offset:['50', '80'],
+                            show: true,
+                            position: 'insideBottom',
+                            formatter: '{c}',
+                            // show: true,
+                            textStyle: {
+                                color: 'white',
+                                fontSize: 14,
+                            }
+                        },
+                        color: '#ffcc5a',
+                    }
+                },
+            },
+            {
+                // name:'视频广告',
+                type: 'bar',
+                stack: '广告',
+                data: [28, 29, 40, 30, 39, 53],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            // offset:['50', '80'],
+                            show: true,
+                            position: 'insideBottom',
+                            formatter: '{c}',
+                            // show: true,
+                            // position: 'insidebottom',
+                            textStyle: {
+                                color: 'white',
+                                fontSize: 14,
+                            }
+                        },
+                        color: '#03b7c6'
+                    },
+                },
+                // barWidth: 50,
+
+            },
+        ]
+    };
+
+    option2 = {
+        grid: {
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom: '20',
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['广东省', '辽宁省', '山西省', '山东省', '天津市', '云南省'],
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            }
+        ],
+        yAxis: [
+            {
+                "show": false,
+                type: 'value',
+                "axisLine": {
+                    // "show": false
+                },
+                "axisTick": {
+                    "show": false
+                },
+                "splitLine": {
+                    "show": false
+                }
+            }
+        ],
+        series: [
+            {
+                // barGap: 20,
+                // name:'联盟广告',
+                type: 'bar',
+                stack: '广告',
+                data: [42, 32, 50, 80, 46, 45],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            // offset:['50', '80'],
+                            show: true,
+                            position: 'insideBottom',
+                            formatter: '{c}',
+                            // show: true,
+                            textStyle: {
+                                color: 'white',
+                                fontSize: 14,
+                            }
+                        },
+                        color: '#ffcc5a',
+                    }
+                },
+            },
+            {
+                // name:'视频广告',
+                type: 'bar',
+                stack: '广告',
+                data: [35, 30, 40, 60, 39, 53],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            // offset:['50', '80'],
+                            show: true,
+                            position: 'insideBottom',
+                            formatter: '{c}',
+                            // show: true,
+                            // position: 'insidebottom',
+                            textStyle: {
+                                color: 'white',
+                                fontSize: 14,
+                            }
+                        },
+                        color: '#03b7c6'
+                    },
+                },
+                // barWidth: 50,
+
+            },
+        ]
+    };
+
+
+    option3 = {
+        grid: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            containLabel: true,
+        },
+        series: [
+            {
+                type: 'gauge',
+                radius: '100%',
+                axisLine: {
+                    lineStyle: {
+                        width: 10,
+                        color: [[0.8000, '#ffe145'], [1.0, '#f0eced']]
+                    }
+                },
+                title: {
+                    show: true,
+                    color: '#868e9b',
+                    fontSize: 12,
+                    offsetCenter: [0, '20%']
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false,
+                },
+                pointer: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false,
+                },
+                detail: {
+                    show: true,
+                    fontSize: 23,
+                    fontWeight: 'bolder',
+                    formatter: '80%',
+                    color: '#f0e173',
+                    offsetCenter: [0, '-20%'],
+                },
+                data: [{name: '房地产及相关'}]
+            },
+
+        ]
+    };
+    option3_1 = {
+        grid: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            containLabel: true,
+        },
+        series: [
+            {
+                type: 'gauge',
+                radius: '100%',
+                axisLine: {
+                    lineStyle: {
+                        width: 10,
+                        color: [[0.3179, '#01ff85'], [1.0, '#f0eced']]
+                    }
+                },
+                title: {
+                    show: true,
+                    color: '#868e9b',
+                    fontSize: 12,
+                    offsetCenter: [0, '20%']
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false,
+                },
+                pointer: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false,
+                },
+                detail: {
+                    show: true,
+                    fontSize: 23,
+                    fontWeight: 'bolder',
+                    formatter: '31.79%',
+                    color: '#00ff84',
+                    offsetCenter: [0, '-20%'],
+                },
+                data: [{name: '港口物流'}]
+            },
+
+        ]
+    };
+    option3_2 = {
+        grid: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            containLabel: true,
+        },
+        series: [
+            {
+                type: 'gauge',
+                radius: '100%',
+                axisLine: {
+                    lineStyle: {
+                        width: 10,
+                        color: [[0.9744, '#ff706a'], [1.0, '#f0eced']]
+                    }
+                },
+                title: {
+                    show: true,
+                    color: '#868e9b',
+                    fontSize: 12,
+                    offsetCenter: [0, '20%']
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false,
+                },
+                pointer: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false,
+                },
+                detail: {
+                    show: true,
+                    fontSize: 23,
+                    fontWeight: 'bolder',
+                    formatter: '97.44%',
+                    color: '#ff706a',
+                    offsetCenter: [0, '-20%'],
+                },
+                data: [{name: '普货物流·长途干线'}]
+            },
+
+        ]
+    };
+    option3_3 = {
+        grid: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            containLabel: true,
+        },
+        series: [
+            {
+                type: 'gauge',
+                radius: '100%',
+                axisLine: {
+                    lineStyle: {
+                        width: 10,
+                        color: [[0.8872, '#16f1f4'], [1.0, '#f0eced']]
+                    }
+                },
+                title: {
+                    show: true,
+                    color: '#868e9b',
+                    fontSize: 12,
+                    offsetCenter: [0, '20%']
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    show: false,
+                },
+                pointer: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false,
+                },
+                detail: {
+                    show: true,
+                    fontSize: 23,
+                    fontWeight: 'bolder',
+                    formatter: '88.72%',
+                    color: '#17f4f7',
+                    offsetCenter: [0, '-20%'],
+                },
+                data: [{name: '危化品物流'}]
+            },
+
+        ]
+    };
+
+    option4 = {
+        grid: {
+            top: 20,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            containLabel: true,
+        },
+        xAxis: {
+            type: 'category',
+            data: ['张X', '王X', '李X', '刘X', '黄X', '赵X', '谢X', '袁X', '胡X', '石X'],
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            }
+        },
+        yAxis: {
+            interval: 100,
+            type: 'value',
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+        },
+        series: [{
+            data: [120, 200, 150, 80, 70, 110, 130, 80, 90, 92],
+            type: 'bar'
+        }]
+    };
+
+    option4_2 = {
+        grid: {
+            top: 20,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            containLabel: true,
+        },
+        label: {
+            color: 'red',
+        },
+        xAxis: {
+            type: 'category',
+            data: ['张X', '王X', '李X', '刘X', '黄X', '赵X', '谢X', '袁X', '胡X', '石X'],
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            }
+        },
+        yAxis: {
+            interval: 100,
+            type: 'value',
+            splitLine: {
+                show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+        },
+        series: [{
+            itemStyle: {
+                normal: {
+                    color: '#FFC858',
+                }
+            },
+            data: [120, 200, 150, 80, 70, 110, 130, 80, 90, 92],
+            type: 'bar'
+        }]
+    };
+
+    option5 = {
+        grid: {
+            top: '0',
+            left: '10',
+            right: '15',
+            bottom: '0',
+            containLabel: true
+        },
+        xAxis: {
+            axisLabel: {
+                interval: 0,
+                // rotate: "45"
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+            type: 'category',
+            boundaryGap: false,
+            // interval:10,
+            // barWidth:10,
+            // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: ['2017-01-01', '2017-02-01', '2017-03-01', '2017-04-01', '2017-04-30', '2017-05-01', '2017-06-01']
+        },
+        yAxis: {
+            splitLine: {
+                show: false,
+            },
+            interval: 100,
+            type: 'value',
+            axisLine: {
+                lineStyle: {
+                    // fontSize:10,
+                    size: 2,
+                    color: 'white',
+                },
+                textStyle: {
+                    fontWeight: 10,
+                }
+            },
+        },
+        dataZoom: [　　//x轴是否可以滑动
+            {
+                type: 'inside',
+                start: 50, //从50%开始显示
+                end: 100,　//到100%的位置　
+                filterMode: 'empty',
+            },
+        ],
+        series: [{
+            // barWidth:10,
+            itemStyle: {
+                normal: {
+                    color: '#FFBE53'
+                }
+            },
+            smooth: true,
+            data: [300, 300, 295, 50, 320, 50, 300],
+            type: 'line',
+            areaStyle: {
+                normal: {
+                    color: 'rgba(255, 190, 82, 0.31)'
+                }
+            }
+        }]
+    };
+    option5_2 = {
+        grid: {
+            top: '0',
+            left: '10',
+            right: '15',
+            bottom: '0',
+            containLabel: true
+        },
+        xAxis: {
+            axisLabel: {
+                interval: 0
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+            type: 'category',
+            boundaryGap: false,
+            data: ['2017-01-01', '2017-02-01', '2017-03-01', '2017-04-01', '2017-04-30', '2017-05-01', '2017-06-01']
+        },
+        yAxis: {
+            splitLine: {
+                show: false,
+            },
+            interval: 100,
+            type: 'value',
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+        },
+        series: [{
+            itemStyle: {
+                normal: {
+                    color: '#1BBBD4'
+                }
+            },
+            smooth: true,
+            data: [300, 300, 295, 50, 320, 50, 300, 300],
+            type: 'line',
+            areaStyle: {
+                normal: {
+                    color: 'rgba(5, 198, 222, 0.31)'
+                }
+            }
+        }]
+    };
+    option5_3 = {
+        grid: {
+            top: '0',
+            left: '10',
+            right: '15',
+            bottom: '0',
+            containLabel: true
+        },
+        xAxis: {
+            axisLabel: {
+                interval: 0
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+            type: 'category',
+            boundaryGap: false,
+            data: ['2017-01-01', '2017-02-01', '2017-03-01', '2017-04-01', '2017-04-30', '2017-05-01', '2017-06-01']
+        },
+        yAxis: {
+            splitLine: {
+                show: false,
+            },
+            interval: 100,
+            type: 'value',
+            axisLine: {
+                lineStyle: {
+                    color: 'white',
+                }
+            },
+        },
+        series: [{
+            itemStyle: {
+                normal: {
+                    color: '#B35559'
+                }
+            },
+            smooth: true,
+            data: [300, 300, 295, 50, 320, 50, 300, 300],
+            type: 'line',
+            areaStyle: {
+                normal: {
+                    color: 'rgba(177, 87, 84, 0.31)'
+                }
+            }
+        }]
+    };
+
+    Chart5.setOption(option5);
+    Chart5_2.setOption(option5_2);
+    Chart5_3.setOption(option5_3);
+    Chart4.setOption(option4);
+    Chart4_2.setOption(option4_2);
+    Chart3.setOption(option3);
+    Chart3_1.setOption(option3_1);
+    Chart3_2.setOption(option3_2);
+    Chart3_3.setOption(option3_3);
+    Chart2.setOption(option2);
+    Chart2_2.setOption(option22);
+    Chart1.setOption(option1);
+    Chart1_1.setOption(option1_1);
+    Chart1_2.setOption(option1);
+    mmmm.setOption(mapoption);
+
+
+</script>
+</body>
+
+</html>

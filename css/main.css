@@ -1,10 +1,16 @@
 body {
     overflow: hidden;
     position: relative;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     background: url("../img/beiJing.jpg") no-repeat;
-    background-size:cover;
+    background-size: cover;
+}
+
+
+#pageBar {
+    position: relative;
+    float: left;
 }
 
 #data {
@@ -14,77 +20,150 @@ body {
     float: left;
 }
 
-
-
 #c1 {
-    height: 100px;
-    width: 100px;
-    float: left;
-}
-
-#c1 {
-    height: 120px;
-    width: 125px;
+    margin: auto;
+    height: 100%;
+    width: 32%;
     float: left;
 }
 
 #c1_1 {
-    height: 120px;
-    width: 125px;
+    margin: auto;
+
+    height: 100%;
+    width: 36%;
     float: left;
 }
 
 #c1_2 {
-    height: 120px;
-    width: 125px;
+    margin: auto;
+    height: 100%;
+    width: 32%;
     float: left;
 }
 
 #circle {
-    height: 250px;
-    width: 400px;
-    position: absolute;
-    right: 0px;
-    top: 107px;
+    float: left;
+    height: 45%;
+    width: 100%;
+    position: relative;
+}
+
+#txt1 {
+    position: relative;
+    width: 25%;
+    float: left;
+    color: white;
+}
+
+#txt2 {
+    position: relative;
+    float: left;
+    width: 25%;
+    color: #38fdff;
+}
+
+#txt3 {
+    position: relative;
+    float: left;
+    width: 25%;
+    color: white;
+}
+
+#txt4 {
+    position: relative;
+    float: left;
+    width: 25%;
+    color: #fb746d;
+}
+
+#table-wrapper {
+    height: 40%;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+#circle4 {
+    margin-top: 20px;
+    position: relative;
+    height: 50%;
+    width: 100%;
+    float: left;
+}
+
+#table2-wrapper {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    float: left;
+}
+#tt {
+    width: 100%;
+    height: 10%;
+    position: relative;
+    float: left;
+    margin-top: 10px;
 }
 
 #c2 {
     position: relative;
     float: left;
-    height: 100px;
+    height: 45%;
     width: 100%;
 }
 
 #c2_2 {
     position: relative;
     float: left;
-    height: 100px;
+    height: 45%;
     /*width: 420px;*/
     width: 100%;
 }
 
+#text1 {
+    color: white;
+    position: relative;
+    float: left;
+    height: 5%;
+}
+
+#text2 {
+    color: white;
+    position: relative;
+    float: left;
+    height: 5%;
+}
+
+#text3 {
+    margin-left: 10px;
+    color: white;
+}
+
+
 #c3 {
-    height: 100px;
+    height: 100%;
     width: 25%;
     float: left;
 }
 
 #c3_1 {
-    height: 100px;
-    width: 25%;
-    float: left;
-}
-#c3_2 {
-    height: 100px;
-    width: 25%;
-    float: left;
-}
-#c3_3 {
-    height: 100px;
+    height: 100%;
     width: 25%;
     float: left;
 }
 
+#c3_2 {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+#c3_3 {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
 
 #c4 {
     position: absolute;
@@ -107,65 +186,83 @@ body {
 
 #c5 {
     position: relative;
-    right: 0px;
-    height: 80px;
-    width: 500px;
+    /*right: 0;*/
+    height: 33.33%;
+    width: 100%;
 }
 
 #c5_2 {
     position: relative;
-    right: 0px;
-    height: 80px;
-    width: 500px;
+    /*right: 0;*/
+    height: 33.33%;
+    width: 100%;
 }
+
 #c5_3 {
     position: relative;
-    right: 0px;
-    height: 80px;
-    width: 500px;
+    /*right: 0px;*/
+    height: 33.33%;
+    width: 100%;
 }
+
 #r1 {
     position: relative;
-    height: 250px;
+    height: 40%;
     width: 100%;
     float: left;
 }
 
 #r2 {
     position: relative;
-    height: 30%;
+    height: 40%;
     width: 100%;
     float: left;
 }
 
 #r3 {
     position: relative;
-    height: 30%;
+    height: 20%;
     width: 100%;
-    float: left;
-}
-
-#top-left {
-    position: relative;
-    width: 30%;
     float: left;
 }
 
 #percent {
+    /*margin-left: 10px;*/
+    margin-top: 20px;
     width: 100%;
     height: 30%;
     position: relative;
     float: left;
+}
+
+#pp1 {
+    position: relative;
+    float: left;
+    margin-left: 40px;
+}
+
+#pp2 {
+    position: relative;
+    float: left;
+    margin-left: 70px;
+}
+
+#pp3 {
+    position: relative;
+    float: left;
+    margin-left: 70px;
 }
 
 #p1 {
     font-size: 32px;
     color: #2be8e9;
 }
+
 #p2 {
     font-size: 32px;
     color: #efc172;
 }
+
 #p3 {
     font-size: 32px;
     color: #fb7f75;
@@ -179,58 +276,175 @@ body {
     height: 70%;
     width: 100%;
     float: left;
+    /*margin-left: 20px;*/
+    margin-top: 20px;
 }
-#t2 {
+
+#top-left {
+    position: relative;
     width: 30%;
-    position: absolute;
-    right: 0px;
+    float: left;
+}
+
+#mymap {
+    position: relative;
+    margin-top: 10px;
+    color: #8b56ff;
+    height: 100%;
+    width: 40%;
     float: left;
 }
 
 #map {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    color: #8b56ff;
-    height: 250px;
-    width: 40%;
+    height: 95%;
+    position: relative;
     float: left;
+    width: 100%;
+}
+
+
+#top-right {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 100%;
 }
 
 #com1 {
     position: relative;
     /*bottom: 0px;*/
-    height: 33%;
-    width: 32%;
+    height: 100%;
+    width: 30%;
     float: left;
 }
 
 #com2 {
     position: relative;
-    height: 33%;
-    width: 36%;
+    height: 100%;
+    width: 40%;
+    /*margin-right: 20px;*/
     float: left;
 }
 
 #com3 {
-    position: absolute;
-    right: 0px;
-    height: 33%;
-    width: 32%;
+    position: relative;
+    /*right: 0;*/
+    height: 100%;
+    width: 30%;
     float: left;
 }
 
-#t3 {
+tr, td {
+    color: white;
+    font-size: 18px;
+    font-family: 华文仿宋, serif;
+}
+
+#m {
     position: relative;
     width: 100%;
-    height: 50%;
-    float: left;
+    height: 100%;
 }
 
-#circle4 {
+#t-l-table {
     position: relative;
-    height: 50%;
+    float: left;
+    width: 98%;
+    height: 100%;
+}
+
+#pageBar {
+    top-margin: 10px;
+    height: 10%;
     width: 100%;
+    font-size: 10px;
+    color: white;
+    position: relative;
     float: left;
 }
 
+#cnt {
+    position: relative;
+    float: left;
+    margin-top: 10px;
+}
+
+#box {
+    margin-top: 10px;
+    position: relative;
+    float: left;
+    color: white;
+    background-color: transparent;
+    border-width: 1px;
+    width: 10%;
+    height: 25%;
+    margin-left: 55%;
+    bottom: 2px;
+}
+
+.arrow {
+    color: gray;
+    margin-right: 2%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.layui-laypage-molv {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+#table-scroll {
+    width: 100%;
+    height:100%;
+    overflow:auto;
+}
+
+#table-scroll::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+#table-scroll::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #535353;
+}
+#table-scroll::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}
+
+.grntxt {
+    color: #3faeb8;
+    text-align: right;
+}
+
+
+#table2-scroll {
+    width: 100%;
+    height:100%;
+    overflow:auto;
+}
+
+#table2-scroll::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+#table2-scroll::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #535353;
+}
+#table2-scroll::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}
